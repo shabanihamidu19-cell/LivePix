@@ -1,0 +1,83 @@
+/*
+ * Global stylesheet for LivePix.
+ * Tailwind utilities are the workhorse; this file holds
+ * the few things that are easier to express as plain CSS.
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background: theme("colors.ink.900");
+  }
+
+  body {
+    @apply min-h-screen bg-ink-900 text-slate-200 font-sans antialiased;
+    /* Subtle cyan mesh gradient matching KidCoder Tz brand */
+    background-image:
+      radial-gradient(circle at 18% 12%, rgba(0, 229, 255, 0.10), transparent 45%),
+      radial-gradient(circle at 82% 88%, rgba(103, 232, 249, 0.06), transparent 50%);
+    background-attachment: fixed;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: theme("colors.ink.900");
+  }
+  ::-webkit-scrollbar-thumb {
+    background: theme("colors.ink.700");
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: theme("colors.cyan.dim");
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md
+           bg-cyan text-ink-900 font-semibold tracking-tight
+           shadow-glow transition
+           hover:bg-cyan-glow hover:-translate-y-0.5
+           active:translate-y-0
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md
+           bg-ink-800 text-slate-300 border border-ink-700
+           transition hover:border-cyan-dim hover:text-cyan-glow;
+  }
+
+  .dropzone {
+    @apply relative grid place-items-center min-h-[280px] rounded-xl
+           border-2 border-dashed border-ink-700 bg-ink-800/60
+           transition cursor-pointer
+           hover:border-cyan-dim hover:bg-ink-800;
+  }
+  .dropzone[data-active="true"] {
+    @apply border-cyan bg-ink-800;
+  }
+
+  .pulse-dot {
+    @apply inline-block w-2 h-2 rounded-full bg-cyan;
+    animation: pulse-glow 1.4s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.6);
+      opacity: 1;
+    }
+    50% {
+      box-shadow: 0 0 0 8px rgba(0, 229, 255, 0);
+      opacity: 0.6;
+    }
+  }
+}
