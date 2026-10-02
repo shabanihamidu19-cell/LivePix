@@ -15,7 +15,7 @@ const {
 } = Astro.props;
 
 const baseUrl = import.meta.env.BASE_URL;
-const siteOrigin = Astro.site?.origin ?? "https://igorcsis.github.io";
+const siteOrigin = Astro.site?.origin ?? "https://shabanihamidu19-cell.github.io";
 const pagePath = Astro.url.pathname;
 const canonical = new URL(pagePath, siteOrigin).toString();
 const absoluteOg = new URL(`${baseUrl}${ogImage}`, siteOrigin).toString();
@@ -54,7 +54,7 @@ const jsonLd = {
     <meta name="robots" content="index, follow, max-image-preview:large" />
 
     <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
-    <link rel="apple-touch-icon" href={`${baseUrl}og.png`} />
+    <link rel="apple-touch-icon" href={`${baseUrl}kidlogo.jpg`} />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="LivePix by KidCoder Tz" />
