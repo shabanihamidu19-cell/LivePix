@@ -7,6 +7,9 @@
 Built by **KidCoder Tz**
 
 </div>
+<div align="center">
+   <im src="assets/kidlogo.jpg" >
+</div>
 
 ## What it does
 
